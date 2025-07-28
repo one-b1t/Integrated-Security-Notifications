@@ -74,6 +74,12 @@ The system operates by having Suricata and the Wazuh Agent monitor network traff
       > * `<email_to>`: The email address that will receive the backup alerts.
       > * `<hook_url>`: Paste the webhook URL you created in Discord.
     * Place the `custom-discord.py` and the corresponding bash script into `/var/ossec/integrations/`. The Python script is available in the `script/` folder of this repository.
+## 💻 Alert Screenshot
+|Attack Type|Screenshot|
+|:---------:|:-----------------------:|
+|Brute Force Attack Alert|<img src="assets/Screenshot 2025-04-09 213330.png">|
+|LFI Attack Alert|<img src="assets/Screenshot 2025-04-15 085933.png">|
+|SQL Injection Attack Alert|<img src="assets/Screenshot 2025-04-15 113355.png">|
 
 ## ✍️ Authors
 
