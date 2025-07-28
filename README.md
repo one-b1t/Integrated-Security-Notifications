@@ -73,7 +73,7 @@ The system operates by having Suricata and the Wazuh Agent monitor network traff
       > * `<email_from>`: The email address alerts will be sent from.
       > * `<email_to>`: The email address that will receive the backup alerts.
       > * `<hook_url>`: Paste the webhook URL you created in Discord.
-    * Place the `custom-discord.py` and the corresponding bash script into `/var/ossec/integrations/`. The Python script is available in the `integrations/` folder of this repository.
+    * Place the `custom-discord.py` and the corresponding bash script into `/var/ossec/integrations/`. The Python script is available in the `script/` folder of this repository.
 
 ## ✍️ Authors
 
