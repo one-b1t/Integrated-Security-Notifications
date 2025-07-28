@@ -32,13 +32,47 @@ The system operates by having Suricata and the Wazuh Agent monitor network traff
 
 ### 2. Installation & Configuration
 
-A detailed installation guide can be found in **Chapter 4.1** of the thesis. The key steps are:
-1.  **Install ELK Stack and Wazuh Server:** Follow the steps in section 4.1.1 to set up Elasticsearch, Kibana, and Wazuh Manager.
+1.  **Install ELK Stack and Wazuh Server**
 2.  **Install Suricata:** Set up Suricata on the Wazuh server and configure it to monitor the desired network interface.
 3.  **Deploy Wazuh Agent:** Install the Wazuh agent on the target servers that need to be monitored.
 4.  **Configure Discord Integration:**
-    * Create a webhook in your Discord server (Chapter 4.1.4).
+    * Create a webhook in your Discord server.
     * Add the integration block to `/var/ossec/etc/ossec.conf` on the Wazuh server. See `config-examples/ossec.conf.example` for a template.
+      ```conf
+      <ossec_config>
+        <global>
+          <jsonout_output>yes</jsonout_output>
+          <alerts_log>yes</alerts_log>
+          <logall>no</logall>
+          <logall_json>no</logall_json>
+          <email_notification>yes</email_notification>
+          <smtp_server>localhost</smtp_server>
+          <email_from>{origin email}</email_from>
+          <email_to>{destination email}</email_to>
+          <email_maxperhour>12</email_maxperhour>
+          <email_log_source>alerts.log</email_log_source>
+          <agents_disconnection_time>10m</agents_disconnection_time>
+          <agents_disconnection_alert_time>0</agents_disconnection_alert_time>
+         </global>
+         <alerts>
+          <log_alert_level>3</log_alert_level>
+          <email_alert_level>8</email_alert_level>
+         </alerts>
+
+      <!--Custom discord Integration --> 
+      <integration>
+          <name>custom-discord</name>
+          <hook_url>{insert your discord webhook here}</hook_url>
+          <level>3</level>
+          <group>ids,suricata,web,accesslog,sshd,bfdvwa</group>
+          <alert_format>json</alert_format>
+        </integration>
+      ```
+      > [!IMPORTANT]
+      > Be sure to replace the placeholder values in the configuration above:
+      > * `<email_from>`: The email address alerts will be sent from.
+      > * `<email_to>`: The email address that will receive the backup alerts.
+      > * `<hook_url>`: Paste the webhook URL you created in Discord.
     * Place the `custom-discord.py` and the corresponding bash script into `/var/ossec/integrations/`. The Python script is available in the `integrations/` folder of this repository.
 
 ## ✍️ Authors
