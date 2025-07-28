@@ -1,21 +1,9 @@
-# Integrated-Security-Notifications
+# Integrated Security System with ELK, Wazuh, Suricata & Discord Alerts
 A thesis project on the development of an integrated security system using the ELK Stack, Wazuh, and Suricata. This system is designed to improve the effectiveness and efficiency of incident handling by automatically detecting cyberattacks and sending real-time alert notifications to Discord.
 
 ---
 
-# Integrated Security System with ELK, Wazuh, Suricata & Discord Alerts
-
-*Development of an Integrated Security System with ELK Stack, Wazuh, Suricata, and Response Automation and Alert Notifications to Discord.*
-
-A thesis project by **Matthew Kurniawan** and **Benedicto Marvelous Alidajaya** , Bina Nusantara University 2025
-
----
-
 An open-source project designed to build a comprehensive and affordable security monitoring solution. This system integrates leading open-source tools to detect, analyze, and respond to cyber threats in real-time within a virtualized environment.
-
-## 🎯 Abstract
-
-This research aims to improve the effectiveness and efficiency of incident handling during cyberattacks by integrating Wazuh, Suricata, and the ELK Stack. The system's performance was evaluated by its ability to detect simulated attacks and the speed of alert delivery to a Discord channel. The study found that the system successfully detected **10 out of 16 simulated attacks (62.5%)** with an average alert delivery time to Discord of **4.04 seconds**.
 
 ## ✨ Key Features
 
